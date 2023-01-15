@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Pull'){
             steps {
-                git 'https://github.com/samirmaske09/studentappui.git'
+                git 'https://github.com/shubhamkalsait/studentapp-ui.git'
             }
         }
         stage('Build'){
@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Test'){
             steps {
-                echo 'Test Successful by ganesh'
+                echo 'Test Successful by shubham'
             }
         }
         stage('Deploy'){
             steps {
-                echo 'Deploy Successful by ganesh'
+                echo 'Deploy Successful by shubham'
             }
         }
     }
