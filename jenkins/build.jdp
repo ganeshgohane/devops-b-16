@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Pull'){
             steps {
-                git 'https://github.com/ganeshgohane/devops-b-16.git'
+                git 'https://github.com/samirmaske09/studentappui.git'
             }
         }
         stage('Build'){
@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Test'){
             steps {
-                echo 'Test Successful by Ganesh'
+                echo 'Test Successful by ganesh'
             }
         }
         stage('Deploy'){
             steps {
-                echo 'Deploy Successful by Ganesh'
+                echo 'Deploy Successful by ganesh'
             }
         }
     }
