@@ -1,0 +1,18 @@
+- name: tags example playbook
+  hosts: all
+  tasks:
+    - name: print Hello World
+      debug:
+        msg: "Hello World"
+      tags: 
+        - hello
+    
+    - name: print Hello Cloudblitz
+      debug:
+        msg: "Hello Cloudblitz"
+      tags:
+        - cloudblitz
+        
+    - name: print welcome
+      debug:
+        msg: "Welcome to Cloudblitz"
