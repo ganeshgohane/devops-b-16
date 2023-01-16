@@ -1,0 +1,15 @@
+- name: install package
+  yum:
+    state: latest  
+    name: httpd
+
+- name: start httpd daemon
+  service:
+    state: started
+    name: httpd
+    enabled: true
+
+- name: Deploy Website
+  copy:
+    src: ./index.html
+    dest: /var/www/html/index.html
