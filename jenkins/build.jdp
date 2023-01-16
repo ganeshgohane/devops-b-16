@@ -1,14 +1,14 @@
-pipeline {
+ppipeline{
     agent any
-    stages {
-        stage('Pull'){
-            steps {
-                git 'https://github.com/shubhamkalsait/studentapp-ui.git'
+    stages{
+        stage('Git pull'){
+            steps{
+                git 'https://github.com/samirmaske09/studentappui.git'
             }
         }
-        stage('Build'){
-            steps {
-               sh 'mvn clean package '
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
             }
         }
         stage('Test'){
