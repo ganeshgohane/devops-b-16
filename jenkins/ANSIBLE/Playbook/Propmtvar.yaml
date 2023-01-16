@@ -1,0 +1,12 @@
+- name: playbook for prompt
+  hosts: all
+  vars: 
+   URL: "www.ganesh.com"
+  vars_prompt:
+  - name: URL
+    prompt: "www.google.com"
+    private: false
+    tasks:
+    - name: print hello world
+      debug:
+        msg: "Please visit {{ URL }}"
