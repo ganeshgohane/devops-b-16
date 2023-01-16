@@ -1,0 +1,6 @@
+- name: playbook for debug
+  hosts: all
+  tasks:
+    - name: print OS Name
+      debug:
+        msg: "THIS IS {{ansible_distribution}}"
