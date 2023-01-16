@@ -1,0 +1,11 @@
+- name: Loop in Ansible 
+  hosts: all
+  tasks:
+    - name: loop
+      debug:
+        msg: 'My fav fruit {{ item }}'
+      loop:
+        - mango
+        - banana
+        - apple
+        - strawberry

@@ -1,0 +1,7 @@
+- name: Condition Playbook
+  hosts: all
+  tasks:
+    - name: print OS if it is Amazon
+      debug:
+        msg: "This is {{ ansible_distribution }}"
+      when: (ansible_distribution == 'Ubuntu' or ansible_distribution_major_version > '6')
