@@ -1,0 +1,18 @@
+- name: Install Java
+  yum:
+    state: latest
+    name: java
+
+- name: Download tomcat 8
+  get_url:
+    url: "{{ TOMCAT_URL }}"
+    dest: /opt/
+
+- name: Extract tomcat to /opt
+  unarchive:
+    src: /opt/{{ TOMCAT_ZIP }}
+    dest: /opt/
+    remote_src: true
+
+- name: start service
+  shell: /opt/{{TOMCAT_NAME}}/bin/catalina.sh start
