@@ -14,10 +14,20 @@
     dest: /opt/
     remote_src: true
 
+- name: start service
+  shell: /opt/{{TOMCAT_NAME}}/bin/catalina.sh start
+
 - name: Deploy webapp
   copy:
     src: ./student.war
-    dest: /opt/{{TOMCAT_DIR}}/webapps/student.war
+    dest: /opt/{{TOMCAT_NAME}}/webapps/student.war
 
-- name: start service
-  shell: /opt/{{TOMCAT_DIR}}/bin/catalina.sh start
+- name: Upload configuration file
+  copy:
+    src: ./context.xml
+    dest: /opt/{{TOMCAT_DIR}}/conf/context.xml
+
+- name: Store my-sql connector in lib
+  get_url:
+    url: '{{MYSQL_LIB_URL}}'
+    dest: /opt/{{TOMCAT_DIR}}/lib/

@@ -1,3 +1,4 @@
 TOMCAT_URL: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.84/bin/apache-tomcat-8.5.84.tar.gz
 TOMCAT_ZIP: apache-tomcat-8.5.84.tar.gz
 TOMCAT_NAME: apache-tomcat-8.5.84
+MYSQL_LIB_URL: https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
