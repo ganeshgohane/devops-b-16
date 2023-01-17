@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+# description: Apache Tomcat init script
+# processname: tomcat  
+# chkconfig: 234 20 80  
+#
+
+TOMCAT_USER=root
+TOMCAT_DIR=/opt/apache-tomcat*
+STARTUP=$TOMCAT_DIR/bin/startup.sh
+SHUTDOWN=$TOMCAT_DIR/bin/shutdown.sh
+
+start() {
+  ps -ef | grep java | grep $TOMCAT_DIR | grep -v grep    &>/dev/null
+  if [ $? -eq 0  ]; then 
+    echo "Tomcat already started"
+    exit 
+  fi 
+  su - $TOMCAT_USER -c "nohup $STARTUP" 
+}
+
+stop() {
+  ps -ef | grep java | grep $TOMCAT_DIR | grep -v grep    &>/dev/null
+  if [ $? -ne 0 ]; then 
+    echo "Tomcat not started"
+    exit 
+  fi 
+  su - $TOMCAT_USER -c "nohup $SHUTDOWN"
+  SLEEP=5
+  while [ $SLEEP -lt 60 ]; do 
+    sleep 5
+    ps -ef | grep java | grep $TOMCAT_DIR | grep -v grep    &>/dev/null    
+    if [ $? -ne 0 ]; then 
+      break
+    fi
+    SLEEP=$(($SLEEP+5)) 
+
+  done
+}
+
+
+case $1 in
+	start)
+	  start
+	;;
+	stop)  
+	  stop
+	;;
+	restart)
+	  stop
+	  start
+	;;
+	*)
+		echo -e $TOMCAT_USAGE
+	;;
+esac    
