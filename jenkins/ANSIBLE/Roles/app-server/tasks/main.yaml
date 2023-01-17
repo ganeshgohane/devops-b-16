@@ -30,4 +30,4 @@
 - name: Store my-sql connector in lib
   get_url:
     url: '{{MYSQL_LIB_URL}}'
-    dest: /opt/{{TOMCAT_DIR}}/lib/
+    dest: /opt/{{TOMCAT_NAME}}/lib/
