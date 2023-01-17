@@ -21,11 +21,11 @@
   copy:
     src: ./student.war
     dest: /opt/{{TOMCAT_NAME}}/webapps/student.war
-
+   
 - name: Upload configuration file
   copy:
     src: ./context.xml
-    dest: /opt/{{TOMCAT_DIR}}/conf/context.xml
+    dest: /opt/{{TOMCAT_NAME}}/conf/context.xml
 
 - name: Store my-sql connector in lib
   get_url:
