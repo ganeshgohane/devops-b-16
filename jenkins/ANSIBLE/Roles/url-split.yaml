@@ -1,0 +1,19 @@
+- name: Playbook for example of URL split
+  hosts: all
+  tasks:
+    - name: example url split
+      debug:
+        msg: '{{ "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.84.tar.gz" | urlsplit("path") }}'
+
+    - name: use splitext
+      debug:
+        msg: '{{ "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.84.tar.gz" | splitext | last }}'
+
+    - name: split function
+      debug: 
+        msg: "{{ 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.84.tar.gz'.split('/') | last }}"
+      register: TOMCAT_ZIP
+
+    - name: find and replace function
+      debug: 
+        msg: "{{ TOMCAT_ZIP | regex_replace('.tar.gz','') }}"
