@@ -31,18 +31,3 @@
   get_url:
     url: '{{MYSQL_LIB_URL}}'
     dest: /opt/{{TOMCAT_NAME}}/lib/
-
-- name: Create Daemon for tomcat
-  copy:
-    src: ./tomcat-init
-    dest: /etc/init.d/tomcatd
-    mode: '0777'
-
-- name: Reload the daemon
-  shell: systemctl daemon-reload
-
-- name: restart tomcat
-  service:
-    name: tomcatd
-    state: restarted 
-    enabled: true
