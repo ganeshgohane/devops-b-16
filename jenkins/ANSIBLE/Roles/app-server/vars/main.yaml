@@ -1,3 +1,3 @@
-TOMCAT_URL: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.84.tar.gz
-TOMCAT_ZIP: "{{ TOMCAT_URL.split('/') | last }}"
-TOMCAT_DIR: "{{ TOMCAT_ZIP | regex_replace('.tar.gz','') }}"
+TOMCAT_URL: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.84/bin/apache-tomcat-8.5.84.tar.gz
+TOMCAT_ZIP: apache-tomcat-8.5.84.tar.gz
+TOMCAT_NAME: apache-tomcat-8.5.84
