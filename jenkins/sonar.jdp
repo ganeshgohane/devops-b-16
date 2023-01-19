@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('Pull'){
+            steps {
+                git 'https://github.com/shubhamkalsait/studentapp-ui.git'
+            }
+        }
+        stage('Build'){
+            steps {
+                sh 'mvn clean package '
+            }
+        }
+        stage('Test'){
+            steps {
+                withSonarQubeEnv('sonar') {
+                     sh 'mvn sonar:sonar'
+                }
+            }
+        }
+        stage('Deploy'){
+            steps {
+                echo 'Deploy Successful by shubham'
+            }
+        }
+    }
+}
